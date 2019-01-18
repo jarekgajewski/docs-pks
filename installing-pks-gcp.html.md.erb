@@ -8,18 +8,27 @@ iaas: GCP
 
 This topic describes how to install and configure Pivotal Container Service (PKS) on Google Cloud Platform (GCP).
 
-##<a id='prerequisites'></a>Prerequisites
+## <a id='prerequisites'></a>Prerequisites
 
 Before performing the procedures in this topic, you must have deployed and configured Ops Manager.
 For more information, see [GCP Prerequisites and Resource Requirements](gcp-requirements.html).
 
 <%= partial 'prerequisites' %>
 
-##<a id='install'></a> Step 1: Install PKS
+## <a id='download'></a> Step 1: Download the PKS Tile
+
+1. If you have not already downloaded PKS, log in to [Pivotal Network](https://network.pivotal.io/), and select "_Pivotal Container Service (PKS)_".
+
+1. From the **Releases** drop-down, select the release to install.
+
+1. Click Pivotal Container Service to download the PKS `.pivotal` file
+
+
+## <a id='install'></a> Step 2: Install PKS
 
 <%= partial 'install-pks' %>
 
-##<a id='configure'></a> Step 2: Configure PKS
+## <a id='configure'></a> Step 3: Configure PKS
 
 Click the orange **Pivotal Container Service** tile to start the configuration process.
 
@@ -29,19 +38,19 @@ Click the orange **Pivotal Container Service** tile to start the configuration p
   do not use spaces in any field entries. This includes spaces between characters as well as
   leading and trailing spaces. If you use a space in any field entry, the deployment of PKS fails.</p>
 
-###<a id='azs-networks'></a> Assign AZs and Networks
+### <a id='azs-networks'></a> Assign AZs and Networks
 
 <%= partial 'azs-networks' %>
 
-###<a id='pks-api'></a> PKS API
+### <a id='pks-api'></a> PKS API
 
 <%= partial 'pks-api' %>
 
-###<a id='plans'></a> Plans
+### <a id='plans'></a> Plans
 
 <%= partial 'plans' %>
 
-###<a id='cloud-provider'></a> Kubernetes Cloud Provider
+### <a id='cloud-provider'></a> Kubernetes Cloud Provider
 
 To configure your Kubernetes cloud provider settings, follow the procedures below:
 
@@ -63,11 +72,11 @@ To configure your Kubernetes cloud provider settings, follow the procedures belo
 
 1. Click **Save**.
 
-###<a id='syslog'></a> (Optional) Logging
+### <a id='syslog'></a> (Optional) Logging
 
 <%= partial 'logging' %>
 
-###<a id='networking'></a> Networking
+### <a id='networking'></a> Networking
 
 To configure networking, do the following:
 
@@ -81,23 +90,23 @@ To configure networking, do the following:
 
 1. Click **Save**.
 
-###<a id='uaa'></a> UAA
+### <a id='uaa'></a> UAA
 
 <%= partial 'uaa' %>
 
-###<a id='monitoring'></a> (Optional) Monitoring
+### <a id='monitoring'></a> (Optional) Monitoring
 
 <%= partial 'monitoring' %>
 
-###<a id='usage'></a> Usage Data
+### <a id='usage'></a> Usage Data
 
 <%= partial 'usage-data' %>
 
-###<a id='errands'></a> Errands
+### <a id='errands'></a> Errands
 
 <%= partial 'errands' %>
 
-###<a id='resource-config'></a> Resource Config
+### <a id='resource-config'></a> Resource Config
 
 To modify the resource usage of PKS and specify your PKS API load balancer, follow the steps below:
 
@@ -112,27 +121,27 @@ For example, `tcp:pks-api`, where `pks-api` is the name that you configured in t
 
 <p class="note"><strong>Note</strong>: If you experience timeouts or slowness when interacting with the PKS API, select a <strong>VM Type</strong> with greater CPU and memory resources for the <strong>Pivotal Container Service</strong> job.</p>
 
-## <a id='apply-changes'></a> Step 3: Apply Changes
+## <a id='apply-changes'></a> Step 4: Apply Changes
 
 <%= partial 'apply-changes' %>
 
-##<a id='retrieve-pks-api'></a> Step 4: Retrieve the PKS API Endpoint
+## <a id='retrieve-pks-api'></a> Step 5: Retrieve the PKS API Endpoint
 
 <%= partial 'share-endpoint' %>
 
-## <a id='loadbalancer-pks-api'></a> Step 5: Configure External Load Balancer
+## <a id='loadbalancer-pks-api'></a> Step 6: Configure External Load Balancer
 
 Follow the procedure in the [Create a Network Tag for the Firewall Rule](gcp-api-load-balancer.html#tag) section of _Creating a GCP Load Balancer for the PKS API_.
 
-## <a id='clis'></a> Step 6: Install the PKS and Kubernetes CLIs
+## <a id='clis'></a> Step 7: Install the PKS and Kubernetes CLIs
 
 <%= partial 'install-cli' %>
 
-## <a id='api'></a> Step 7: Configure PKS API Access
+## <a id='api'></a> Step 8: Configure PKS API Access
 
 Follow the procedures in [Configuring PKS API Access](configure-api.html).
 
-## <a name='auth'></a> Step 8: Configure Authentication for PKS
+## <a name='auth'></a> Step 9: Configure Authentication for PKS
 
 <%= partial 'configure-auth' %>
 
